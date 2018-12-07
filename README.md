@@ -1,2 +1,0 @@
-# sucms
-Su CMS
