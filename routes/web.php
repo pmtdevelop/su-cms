@@ -11,6 +11,8 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('site/welcome');
 });
@@ -18,3 +20,11 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin/welcome');
 });
+Route::get('/admin', 'AdminController@admin')
+    ->middleware('is_admin')
+    ->name('admin');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
