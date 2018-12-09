@@ -13,7 +13,6 @@
 /app/Http/Middleware/TrimStrings.php
 /app/Http/Middleware/TrustProxies.php
 /app/Http/Middleware/VerifyCsrfToken.php
-/app/Http/Kernel.php
 /app/Providers/AppServiceProvider.php
 /app/Providers/AuthServiceProvider.php
 /app/Providers/BroadcastServiceProvider.php
