@@ -89,7 +89,6 @@ yarn-error.log
 
 /app/Console/Kernel.php
 /app/Exceptions
-/app/Http
 /app/Providers/
 /app/User.php
 /database
