@@ -18,7 +18,6 @@
 /app/Providers/BroadcastServiceProvider.php
 /app/Providers/EventServiceProvider.php
 /app/Providers/RouteServiceProvider.php
-/app/User.php
 /bootstrap
 /config
 /database
