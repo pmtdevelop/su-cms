@@ -14,7 +14,7 @@
 Auth::routes();
 
 Route::get('/', function () {
-    return view('site/welcome');
+    return view('site/home');
 });
 
 Route::get('/admin', function () {
