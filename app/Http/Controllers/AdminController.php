@@ -15,6 +15,10 @@ class AdminController extends Controller
         return view('admin/welcome');
     }
     public function index(){
-        return view('admin.dashboard');
+        return view('admin.dashboard.dashboard');
     }
+    public function login(){
+        return view('admin.login.login');
+    }
+
 }

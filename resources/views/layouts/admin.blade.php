@@ -33,12 +33,16 @@
     {{--<link rel="apple-touch-icon" sizes="152x152" href="{{$PUBLIC_PATH}}images/favicon-152.png">--}}
     {{--<link rel="apple-touch-icon" sizes="180x180" href="{{$PUBLIC_PATH}}images/favicon-180.png">--}}
 
-    <title>Billing - Vultr.com</title>
+    <title></title>
     <link href="css/global.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 </head>
 <body>
@@ -82,14 +86,10 @@
 </div>
 
 <div id="header1_0">
-
-
-    <a href="#" class="hide_on_mobile" id="header1_2" data-offset-x="43" data-offset-y="10" data-dropdownpopup="CgkJPGEgaHJlZj0iIyIgYXJpYS1sYWJlbD0iUG9wdXAgTWVudSIgb25jbGljaz0icmV0dXJuIGZhbHNlOyIgc3R5bGU9Im91dGxpbmUtd2lkdGg6IDBweDsgaGVpZ2h0OiAwcHg7IHBhZGRpbmc6IDBweDsgbWFyZ2luOiAwcHg7Ij48L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3Byb2ZpbGUiIG9uY2xpY2s9ImNoYW5nZVRhYlN1Ym1lbnUoJ3NldHRpbmdzcHJvZmlsZScpIj5Qcm9maWxlPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3NhdXRoZW50aWNhdGlvbiIgb25jbGljaz0iY2hhbmdlVGFiU3VibWVudSgnc2V0dGluZ3NhdXRoZW50aWNhdGlvbicpIj5BdXRoZW50aWNhdGlvbjwvYT4KCQk8YSBocmVmPSIvc2V0dGluZ3MvI3NldHRpbmdzYXBpIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc2FwaScpIj5BUEk8L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3VzZXJzIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc3VzZXJzJykiPlVzZXJzPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3Nub3RpZmljYXRpb25zIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc25vdGlmaWNhdGlvbnMnKSI+Tm90aWZpY2F0aW9uczwvYT4KCQk8aHIvPgoJCTxhIGhyZWY9Ii8/bG9nb3V0PTEiPkxvZ291dDwvYT4=">
-        Welcome back, Thanh Pham Minh!
-    </a>
     <li class="nav-item dropdown">
         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            {{ Auth::user()->name }} <span class="caret"></span>
+            Welcome back,{{ Auth::user()->name }}
+            <span class="caret"></span>
         </a>
 
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -140,12 +140,6 @@
 <div class="block1290">
 
     <div class="info_message">You are almost ready to deploy servers - please link a payment method to get started!</div>
-
-
-
-
-
-
     <div class="flex3column submenutabcontent" id="tabc_billingaddfunds" style="display:none;">
 
         <div class="container-fluid w100p">
