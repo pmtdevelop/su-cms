@@ -1,6 +1,4 @@
 @extends('layouts.app')
-
-
 @section('title')
     <a class="navbar-brand" href="{{route('admin')}}">Administrtor</a>
 @endsection
