@@ -1,202 +1,45 @@
-<?php $PUBLIC_PATH = config('helper.public_url');?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=0">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Mobile favicon -->
-    <link rel="icon" sizes="114x114" href="{{$PUBLIC_PATH}}images/favicon-114.png">
-    <link rel="icon" sizes="72x72" href="{{$PUBLIC_PATH}}images/favicon-72.png">
-    <link rel="icon" sizes="144x144" href="{{$PUBLIC_PATH}}images/favicon-144.png">
-    <link rel="icon" sizes="60x60" href="{{$PUBLIC_PATH}}images/favicon-60.png">
-    <link rel="icon" sizes="120x120" href="{{$PUBLIC_PATH}}images/favicon-120.png">
-    <link rel="icon" sizes="76x76" href="{{$PUBLIC_PATH}}images/favicon-76.png">
-    <link rel="icon" sizes="152x152" href="{{$PUBLIC_PATH}}images/favicon-152.png">
-    <link rel="icon" sizes="180x180" href="{{$PUBLIC_PATH}}images/favicon-180.png">
 
-    <!-- Apple touch icons -->
-    <link rel="apple-touch-icon" href="{{$PUBLIC_PATH}}images/favicon-57.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{$PUBLIC_PATH}}images/favicon-114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{$PUBLIC_PATH}}images/favicon-72.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{url('/')}}}/public/images/favicon-144.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{$PUBLIC_PATH}}images/favicon-60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{$PUBLIC_PATH}}images/favicon-120.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{$PUBLIC_PATH}}images/favicon-76.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{$PUBLIC_PATH}}images/favicon-152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{$PUBLIC_PATH}}images/favicon-180.png">
+    <!-- Mobile favicon -->
+    {{--<link rel="icon" sizes="114x114" href="{{$PUBLIC_PATH}}images/favicon-114.png">--}}
+    {{--<link rel="icon" sizes="72x72" href="{{$PUBLIC_PATH}}images/favicon-72.png">--}}
+    {{--<link rel="icon" sizes="144x144" href="{{$PUBLIC_PATH}}images/favicon-144.png">--}}
+    {{--<link rel="icon" sizes="60x60" href="{{$PUBLIC_PATH}}images/favicon-60.png">--}}
+    {{--<link rel="icon" sizes="120x120" href="{{$PUBLIC_PATH}}images/favicon-120.png">--}}
+    {{--<link rel="icon" sizes="76x76" href="{{$PUBLIC_PATH}}images/favicon-76.png">--}}
+    {{--<link rel="icon" sizes="152x152" href="{{$PUBLIC_PATH}}images/favicon-152.png">--}}
+    {{--<link rel="icon" sizes="180x180" href="{{$PUBLIC_PATH}}images/favicon-180.png">--}}
+
+    {{--<!-- Apple touch icons -->--}}
+    {{--<link rel="apple-touch-icon" href="{{$PUBLIC_PATH}}images/favicon-57.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="114x114" href="{{$PUBLIC_PATH}}images/favicon-114.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="72x72" href="{{$PUBLIC_PATH}}images/favicon-72.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="144x144" href="{{url('/')}}}/public/images/favicon-144.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="60x60" href="{{$PUBLIC_PATH}}images/favicon-60.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="120x120" href="{{$PUBLIC_PATH}}images/favicon-120.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="76x76" href="{{$PUBLIC_PATH}}images/favicon-76.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="152x152" href="{{$PUBLIC_PATH}}images/favicon-152.png">--}}
+    {{--<link rel="apple-touch-icon" sizes="180x180" href="{{$PUBLIC_PATH}}images/favicon-180.png">--}}
 
     <title>Billing - Vultr.com</title>
     <link href="css/global.css" rel="stylesheet">
-    <link href="css/bootstrap-grid.min.css" rel="stylesheet">
-    <link href="css/select2.min.css" rel="stylesheet">
-    <style type="text/css">
-        .select2-container--default .select2-selection--single { border-color:#DCDEE0; height:50px; }
-        .select2-container--default .select2-selection--single .select2-selection__rendered	{ line-height: 50px; padding-left:15px; padding-top: 5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .select2-container--default .select2-selection--single .select2-selection__arrow { height:50px; }
-    </style>
-    <style>
-        label.flexwidth1fifth,
-        label.flexwidth1sixth,
-        label.flexwidth100 {
-            transition: all ease-in .15s;
-        }
-
-        .pagingoptions { display:none; }
-
-        @media all and (min-width:0px) and (max-width:767px)
-        {
-            .tablelistbillinghistory tr td:nth-child(4)	{ display:none; }
-            .tablelistbillinghistory tr td:nth-child(5)	{ display:none; }
-        }
-
-        @media only screen and (min-device-width : 320px) and (max-device-width : 736px) {
-            .display-title {
-                font-size: 10px !important;
-            }
-            .display-2 {
-                font-size: 18px !important;
-            }
-            .display-2 > small {
-                font-size: 12px !important;
-            }
-            a.fonticonconsolenotext {
-                display:none;
-            }
-        }
-
-        .panel {
-            position: relative;
-            display: block;
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid #e3e5e8;
-            -webkit-border-radius: 3px;
-            border-radius: 3px;
-            text-align: left;
-        }
-
-        .panel-body,
-        .panel-block-sm {
-            padding: 24px;
-        }
-
-        .tab-section-sm {
-            max-width: 520px;
-        }
-
-        .display-title {
-            display: block;
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #9da2a6;
-            font-size: 13px;
-            font-weight: 300;
-            line-height: 16px;
-        }
-
-        .display-2 {
-            color: #363b40;
-            font-size: 35px;
-            font-weight: 100;
-        }
-
-        .display-2 small{
-            font-size: 16px;
-        }
-
-        .display-title > a {
-            color: #1e88e5;
-        }
-
-        .display-title:last-child {
-            margin: 0;
-        }
-
-        .btn-primary {
-            color: #fff;
-            background-color: #1e88e5;
-            border-color: #1e88e5;
-        }
-
-        .btn-primary:hover {
-            color: #fff;
-            background-color: #3ba3ff;
-            border-color: #3ba3ff;
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-
-
-
-        input.billing_ccradio:checked + label .zmdi {
-            color: white;
-        }
-
-        input.billing_ccradio:checked + label .sp-blue {
-            border-top : 2px #fff solid;
-        }
-
-        .zmdi-chevron-up {
-            font-size: 22px;
-            cursor: pointer;
-            position: relative;
-            right: 20px;
-        }
-
-        .zmdi-chevron-up:hover {
-            color: #1e88e5;
-        }
-
-        .zmdi-chevron-up:focus {
-            outline: 0;
-        }
-
-        #billing-spinner {
-            position: absolute;
-            top: 19px;
-            right: 59px;
-        }
-
-        .zmdi-plus-circle-o {
-            display:none;
-        }
-
-        @media all and (max-width:767px) {
-            .hide_on_mobile {
-                display: none !important;
-            }
-
-            .zmdi-plus-circle-o {
-                display:initial;
-            }
-
-            #billing-spinner {
-                position: relative;
-                right: 24px;
-                top: -1px;
-            }
-        }
-        .zmdi-collection-text {
-            color: #616366 !important;
-            font-size: 22px;
-        }
-        .zmdi-collection-text:hover {
-            color: #0084df !important;
-        }
-
-        .qrcode-panel {
-            width:100%;
-        }
-    </style>
-    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/site.css') }}">
+    <link href="{{ asset('css/select2.min.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 </head>
 <body>
 
@@ -244,6 +87,23 @@
     <a href="#" class="hide_on_mobile" id="header1_2" data-offset-x="43" data-offset-y="10" data-dropdownpopup="CgkJPGEgaHJlZj0iIyIgYXJpYS1sYWJlbD0iUG9wdXAgTWVudSIgb25jbGljaz0icmV0dXJuIGZhbHNlOyIgc3R5bGU9Im91dGxpbmUtd2lkdGg6IDBweDsgaGVpZ2h0OiAwcHg7IHBhZGRpbmc6IDBweDsgbWFyZ2luOiAwcHg7Ij48L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3Byb2ZpbGUiIG9uY2xpY2s9ImNoYW5nZVRhYlN1Ym1lbnUoJ3NldHRpbmdzcHJvZmlsZScpIj5Qcm9maWxlPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3NhdXRoZW50aWNhdGlvbiIgb25jbGljaz0iY2hhbmdlVGFiU3VibWVudSgnc2V0dGluZ3NhdXRoZW50aWNhdGlvbicpIj5BdXRoZW50aWNhdGlvbjwvYT4KCQk8YSBocmVmPSIvc2V0dGluZ3MvI3NldHRpbmdzYXBpIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc2FwaScpIj5BUEk8L2E+CgkJPGEgaHJlZj0iL3NldHRpbmdzLyNzZXR0aW5nc3VzZXJzIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc3VzZXJzJykiPlVzZXJzPC9hPgoJCTxhIGhyZWY9Ii9zZXR0aW5ncy8jc2V0dGluZ3Nub3RpZmljYXRpb25zIiBvbmNsaWNrPSJjaGFuZ2VUYWJTdWJtZW51KCdzZXR0aW5nc25vdGlmaWNhdGlvbnMnKSI+Tm90aWZpY2F0aW9uczwvYT4KCQk8aHIvPgoJCTxhIGhyZWY9Ii8/bG9nb3V0PTEiPkxvZ291dDwvYT4=">
         Welcome back, Thanh Pham Minh!
     </a>
+    <li class="nav-item dropdown">
+        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            {{ Auth::user()->name }} <span class="caret"></span>
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    </li>
 </div>
 
 <div id="header2_wrap">
